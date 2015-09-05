@@ -10,15 +10,21 @@ public class SpawnScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Spawn (); //Start the Spawn function 
+		Spawn (); // Start the Spawn function 
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		CancelInvoke ("Spawn");
+		//Spawn();
 	}
 	
 	// Spawn platform objects
-	void Spawn () 
+	void Spawn() 
 	{
-		//          Random object, at spawnobjects position, with normal rotation
-		Instantiate(platforms[Random.Range(0, platforms.Length)], transform.position, Quaternion.identity);
-		Invoke("Spawn", Random.Range(spawnMin, spawnMax)); // Spawn randomly between two time values (in seconds)
+			// Random object, at spawnobjects position, with normal rotation
+			Instantiate(platforms[Random.Range(0, platforms.Length)], transform.position + new Vector3(0,1,0), Quaternion.identity);
+			Invoke("Spawn", Random.Range(spawnMin, spawnMax)); // Spawn randomly between two time values (in seconds)
 	}
 
 }

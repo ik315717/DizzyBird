@@ -21,9 +21,9 @@ namespace UnityStandardAssets._2D
         {
             if (!m_Jump)
             {
-                // Read the jump input in Update so button presses aren't missed.
-				if(HUDScript.jumpbuttonpressed)
-					m_Jump = true;
+//                // Read the jump input in Update so button presses aren't missed.
+//				if(HUDScript.jumpbuttonpressed)
+//					m_Jump = true;
             }
 
         }
