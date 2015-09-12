@@ -22,9 +22,26 @@ namespace UnityStandardAssets._2D
 
 		private bool doubleJump = false;
 
+        float score = 0;
+
+        public Transform startPosition;
+        public Vector3 lastPosition;
+        public float distanceTraveled = 0f;
+        private int distanceCounter = 1;
+        private int distanceCounter2 = 1;
+        public bool AllowSpawn = false;
+        public bool AllowSpawn2 = false;
+
+        private void Start()
+        {
+            startPosition = GameObject.FindWithTag("StartX").transform;
+            lastPosition = transform.position;
+        }
+
         private void Awake()
         {
             // Setting up references.
+
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
@@ -52,8 +69,16 @@ namespace UnityStandardAssets._2D
 			if (m_Grounded)
 				doubleJump = false;
 
+            
         }
 
+        private void Update()
+        {
+            //distanceTraveled += Vector3.Distance(startPosition.position, lastPosition);
+            distanceTraveled = lastPosition.x - startPosition.position.x;
+            lastPosition = transform.position;
+            ChangeScore();
+        }
 
         public void Move(float move, bool crouch, bool jump)
         {
@@ -125,5 +150,33 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+
+        public void ChangeScore()
+        {
+            score = distanceTraveled;
+            if(score >= 23*distanceCounter)
+            {
+                distanceCounter++;
+                AllowSpawn = true;
+            }
+            if (score >= 36 * distanceCounter2)
+            {
+                distanceCounter2++;
+                AllowSpawn2 = true;
+            }
+
+        }
+
+        void OnGUI()
+        {
+            // 10, 10 puts score in upper left corner
+            #warning For use on many different devices, use "screen" to determine where the score should be depending on devices screen size
+            GUI.contentColor = Color.black;
+            GUI.skin.label.fontSize = 30;
+            GUI.Label(new Rect(10, 10, 500, 60), "Distance Traveled: " + score);
+        }
     }
+
+
 }
