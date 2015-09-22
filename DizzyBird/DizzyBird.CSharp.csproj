@@ -57,12 +57,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -85,7 +79,7 @@
     <Compile Include="Assets\Scripts\CameraRunnerScript.cs" />
     <Compile Include="Assets\Scripts\DestroyerScript.cs" />
     <Compile Include="Assets\Scripts\GameOverScript.cs" />
-    <Compile Include="Assets\Scripts\HUDScript.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
     <Compile Include="Assets\Scripts\PlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\Restarter.cs" />

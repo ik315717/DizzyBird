@@ -16,7 +16,7 @@ public class DestroyerScript : MonoBehaviour {
 		{
 			// Faster to pass in scene number rather than evaluate a scene's string name
 			// Scene number can be viewed in build settings
-			Application.LoadLevel(1);
+			Application.LoadLevel("GameOverScene");
 			return;
 		}
 
